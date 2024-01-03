@@ -1,9 +1,79 @@
+body{
+  background-image: url(https://c.wallhere.com/photos/7a/16/Avatar_The_Last_Airbender-43530.png!d);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Esto fija la imagen de fondo durante el scroll */
+  margin: 0; /* Elimina el margen predeterminado del body */
+  height: 100vh; /* Ajusta la altura al 100% de la ventana visible */
+  overflow: auto
+}
+
+h1{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  color: white;
+}
+
+h2{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  color: white;
+}
+
 img{
   border-radius: 5px;
 }
 
-.container-images-player{
+button{
+  background-color: rgba(32, 35, 41, .8);
+  margin: 5px;
+  border-radius: 5px;
+  color: wheat;
+  border-color: wheat;
+  cursor: pointer;
+}
+
+.buttons-select-player{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.container-wrapper {
+  display: flex;
+}
+
+.container-images-player {
+  flex: 1 1;
   display: flex;
   flex-direction: column;
-  align-items: center
+  align-items: center;
+}
+
+.container-images-pc {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.render-images-player{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+.render-images-pc{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.container-button-combat{
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }
