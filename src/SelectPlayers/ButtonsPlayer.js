@@ -1,5 +1,6 @@
 import React from "react";
-import { ProgressContext } from "./ContextGlobal";
+import { ProgressContext } from "../ContextGlobal/ContextGlobal";
+import { useNavigate } from "react-router-dom";
 
 function ButtonsPlayer(){
     const{
@@ -16,9 +17,11 @@ function ButtonsPlayer(){
 }
 
 function ButtonCombat(){
+    const buttonCombat = useNavigate()
     return(
         <div className="container-button-combat">
             <button onClick={()=>{
+                buttonCombat('/combat/')
                 console.log('navegacion a combate')
             }}>COMBATE</button>
         </div>

@@ -1,12 +1,11 @@
 import React from "react";
-import { ProgressContext } from "./ContextGlobal";
+import { ProgressContext } from "../ContextGlobal/ContextGlobal";
 
 
 function SelectPlayerImage(){
   const { 
-    selectPlayer,
     selectedPlayer,
-  } = React.useContext(ProgressContext);
+  } = React.useContext(ProgressContext)
 
   return (
     <div className="container-images-player">
@@ -26,7 +25,7 @@ function SelectPlayerImage(){
         
       )}
     </div>
-  );
+  )
 }
 
 export {SelectPlayerImage}

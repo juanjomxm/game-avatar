@@ -1,20 +1,20 @@
 import React from "react";
-import { ProgressContext } from "./ContextGlobal";
+import { ProgressContext } from "../ContextGlobal/ContextGlobal";
 
 function SelectPcImage(){
     const { 
         imgSelectPlayer, 
         aleatory 
     } = React.useContext(ProgressContext);
-    const [selectedPc, setSelectedPc] = React.useState('');
+    const [selectedPc, setSelectedPc] = React.useState('')
   
     React.useEffect(() => {
-      const selectPcPlayer = aleatory(1, 4);
+      const selectPcPlayer = aleatory(1, 4)
   
       const updateSelectedPlayer = (name) => {
-        const pc = imgSelectPlayer.find(item => item.name.includes(name));
+        const pc = imgSelectPlayer.find(item => item.name.includes(name))
         if (pc) {
-          setSelectedPc(pc);
+          setSelectedPc(pc)
         }
       };
   

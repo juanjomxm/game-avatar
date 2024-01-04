@@ -77,3 +77,8 @@ button{
   width: 100%;
   justify-content: center;
 }
+
+.container-combat{
+  display: flex;
+  justify-content: center
+}

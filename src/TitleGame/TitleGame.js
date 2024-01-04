@@ -9,4 +9,13 @@ function TitleGame(){
     )
 }
 
+function TitleCombat(){
+    return(
+        <div>
+            <h1>COMBATE</h1>
+        </div>
+    )
+}
+
 export { TitleGame }
+export { TitleCombat }
