@@ -4,9 +4,10 @@ import { ProgressContext } from "../ContextGlobal/ContextGlobal";
 function SelectPcImage(){
     const { 
         imgSelectPlayer, 
-        aleatory 
+        aleatory,
+        selectedPc, 
+        setSelectedPc 
     } = React.useContext(ProgressContext);
-    const [selectedPc, setSelectedPc] = React.useState('')
   
     React.useEffect(() => {
       const selectPcPlayer = aleatory(1, 4)

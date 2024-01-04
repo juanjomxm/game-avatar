@@ -7,7 +7,7 @@ import { ButtonsPlayer } from "../SelectPlayers/ButtonsPlayer";
 import { SelectPlayerImage } from "../SelectPlayers/SelectPlayerImage";
 import { SelectPcImage } from "../SelectPlayers/SelectPcImage";
 import { ButtonCombat } from "../SelectPlayers/ButtonsPlayer";
-import { Combat } from "../Combat";
+import { Combat } from "../Combat/Combat";
 import { ProgressContext } from "../ContextGlobal/ContextGlobal";
 
 function App() {

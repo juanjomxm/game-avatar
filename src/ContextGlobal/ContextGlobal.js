@@ -11,6 +11,7 @@ function ProgressProvider({children}){
     ]
 
     const [selectedPlayer, setSelectedPlayer] = React.useState('') // Estado que maneja la seleccion del jugador y renderiza su resultado
+    const [selectedPc, setSelectedPc] = React.useState('')
 
     const selectPlayer = (playerName) => { // Funcion que ejecuta el click de los botones para escoger jugador
         const player = imgSelectPlayer.find(item => item.name.includes(playerName));
@@ -29,7 +30,9 @@ function ProgressProvider({children}){
             selectPlayer,
             selectedPlayer, 
             setSelectedPlayer,
-            aleatory
+            aleatory,
+            selectedPc, 
+            setSelectedPc
         }}>
             {children}
         </ProgressContext.Provider>

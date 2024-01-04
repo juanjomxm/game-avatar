@@ -77,8 +77,27 @@ button{
   width: 100%;
   justify-content: center;
 }
-
 .container-combat{
   display: flex;
-  justify-content: center
+  justify-content: space-around
 }
+
+.atack-player{
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+.atack-pc{
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+
+.health-bar {
+  height: 20px;
+  background-color: #4caf50; /* Color verde para la barra de salud */
+  transition: width 0.5s; /* Animación de transición */
+  /* max-width: 400px;  */
+  border-radius: 5px;
+}
+
