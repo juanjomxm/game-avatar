@@ -2,9 +2,9 @@ body{
   background-image: url(https://c.wallhere.com/photos/7a/16/Avatar_The_Last_Airbender-43530.png!d);
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* Esto fija la imagen de fondo durante el scroll */
-  margin: 0; /* Elimina el margen predeterminado del body */
-  height: 100vh; /* Ajusta la altura al 100% de la ventana visible */
+  background-attachment: fixed; 
+  margin: 0; 
+  height: 100vh;
   overflow: auto
 }
 
@@ -82,22 +82,35 @@ button{
   justify-content: space-around
 }
 
-.atack-player{
+.atack-player, .atack-pc{
   display: flex;
   flex-direction: column;
-  align-items: center
-}
-.atack-pc{
-  display: flex;
-  flex-direction: column;
-  align-items: center
+  width: 300px;
+  align-items: center;
 }
 
 .health-bar {
   height: 20px;
   background-color: #4caf50; /* Color verde para la barra de salud */
   transition: width 0.5s; /* Animación de transición */
-  /* max-width: 400px;  */
   border-radius: 5px;
 }
+
+.container-images-atack{
+  margin-top: 10px;
+}
+
+.container-buttons-atacks{
+  display: flex;
+  flex-direction: column
+}
+
+.container-message-final{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
 
