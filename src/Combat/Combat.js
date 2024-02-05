@@ -5,14 +5,14 @@ const Combat = () => {
   const {
     selectedPlayer,
     selectedPc,
-  } = React.useContext(ProgressContext);
+  } = React.useContext(ProgressContext)
 
   const [healtPlayer, setHealtPlayer] = React.useState(100)
   const [healtPc, setHealtPc] = React.useState(100)
   const [combatFinish, setCombatFinish] = React.useState(false)
   const [youTurn, setyouTurn] = React.useState(true)
-  const [currentPlayerAttackImage, setCurrentPlayerAttackImage] = React.useState('') // Estado para la imagen ataque del jugador
-  const [currentPcAttackImage, setCurrentPcAttackImage] = React.useState('') // Estado para la imagen ataque de la maquina
+  const [currentPlayerAttackImage, setCurrentPlayerAttackImage] = React.useState('') // Estado para la imagen de ataque del jugador
+  const [currentPcAttackImage, setCurrentPcAttackImage] = React.useState('') // Estado para la imagen de ataque de la maquina
 
   const youAtack = (damage, image) => {
     if (!combatFinish && youTurn) {
@@ -25,7 +25,7 @@ const Combat = () => {
         setyouTurn(false)
       }
     }
-  };
+  }
 
   const pcAtack = () => {
     if (!combatFinish && !youTurn) {
@@ -56,14 +56,23 @@ const Combat = () => {
     setHealtPc(100)
     setCombatFinish(false)
     setyouTurn(true)
-  };
+    setCurrentPlayerAttackImage('')
+    setCurrentPcAttackImage('')
+  }
 
   return (
     <div className="container-combat">
       <div className="atack-player">
         <h3>{selectedPlayer?.name}</h3>
-        <img src={selectedPlayer.src} width={100} height={100} />
-        <div className="health-bar" style={{ width: `${healtPlayer}%` }} />
+        <img 
+        src={selectedPlayer.src} 
+        width={100} height={100} 
+        />
+
+        <div 
+        className="health-bar" 
+        style={{ width: `${healtPlayer}%` }} // De esta manera se puede hacer la barra de salud
+        />
 
         <div className="container-images-atack">
           {currentPlayerAttackImage && (
@@ -92,8 +101,15 @@ const Combat = () => {
       {/* Seccion de ataques de la maquina */}
       <div className="atack-pc">
         <h3>{selectedPc?.name}</h3>
-        <img src={selectedPc.src} width={100} height={100} />
-        <div className="health-bar" style={{ width: `${healtPc}%` }} />
+        <img 
+        src={selectedPc.src} 
+        width={100} 
+        height={100} 
+        />
+        <div 
+        className="health-bar" 
+        style={{ width: `${healtPc}%` }} // De esta manera se puede hacer la barra de salud
+        />
 
         <div className="container-images-atack">
           {currentPcAttackImage && (
@@ -107,15 +123,21 @@ const Combat = () => {
       </div>
 
       {/* Seccion del mensaje ganador */}
+      {/* Con el signo de interrogacion en js tambien se hace una condicion, seria lo mismo que utilizar if o else */}
       {combatFinish && (
         <div className="container-message-final">
-          <h3>¡Combate Terminado!</h3>
+          <h3>GAME OVER</h3>
+
           {healtPlayer === 0 ? (
-            <p>El ganador es: {selectedPc.name}</p>
+            <p>{selectedPc.name}: PC ha ganado </p>
           ) : (
-            <p>El ganador es: {selectedPlayer.name}</p>
+            <p>{selectedPlayer.name}: Ganaste</p>
           )}
-          <button onClick={reiniciarCombate}>Reiniciar Combate</button>
+
+          <button 
+          onClick={reiniciarCombate}
+          >
+          Reiniciar Combate</button>
         </div>
       )}
     </div>

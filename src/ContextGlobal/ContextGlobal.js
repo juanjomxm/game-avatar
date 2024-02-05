@@ -3,6 +3,9 @@ const ProgressContext = React.createContext()
 
 function ProgressProvider({children}){
 
+    const [selectedPlayer, setSelectedPlayer] = React.useState('') // Estado que maneja la seleccion del jugador y renderiza su resultado
+    const [selectedPc, setSelectedPc] = React.useState('') // Estado que maneja la seleccion del pc
+
     const imgSelectPlayer = [ // Array de objetos que contiene el nombre y la imagen de el jugador seleccionado segun corresponda
         { name: 'AANG', src: 'https://th.bing.com/th/id/R.27f08d59924bf6c3ea96b4588f88b501?rik=xGqSki4BXxDEUA&riu=http%3a%2f%2fwww.absoluteanime.com%2favatar_the_last_airbender%2faang%5b2%5d.jpg&ehk=wxPH2H8TgNuwzWsYOVAHxgnuNzPVtWni4lWKMCxkYHk%3d&risl=&pid=ImgRaw&r=0', attacks: [
             { name: 'Ataque Normal', damage: aleatory(10, 20), image: 'https://th.bing.com/th/id/R.3152f7ebdc79a886e712480e7279c794?rik=UurzZJlyF0FiVw&pid=ImgRaw&r=0' },
@@ -28,9 +31,6 @@ function ProgressProvider({children}){
             { name: 'Ataque Especial', damage: aleatory(10, 20), image: 'https://media.giphy.com/media/a3BSVQ00oj2kU/giphy.gif' },
         ] }
     ]
-
-    const [selectedPlayer, setSelectedPlayer] = React.useState('') // Estado que maneja la seleccion del jugador y renderiza su resultado
-    const [selectedPc, setSelectedPc] = React.useState('')
 
     const selectPlayer = (playerName) => { // Funcion que ejecuta el click de los botones para escoger jugador
         const player = imgSelectPlayer.find(item => item.name.includes(playerName));

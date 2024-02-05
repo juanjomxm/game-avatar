@@ -18,7 +18,6 @@ function SelectPlayerImage(){
             alt={selectedPlayer.name}
             width={300}
             height={300}
-            style={{ border: 'none' }}
           />
           <p>PLAYER</p>
         </div>

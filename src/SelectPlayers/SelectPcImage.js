@@ -6,7 +6,8 @@ function SelectPcImage(){
         imgSelectPlayer, 
         aleatory,
         selectedPc, 
-        setSelectedPc 
+        setSelectedPc,
+        selectedPlayer 
     } = React.useContext(ProgressContext);
   
     React.useEffect(() => {
@@ -17,7 +18,7 @@ function SelectPcImage(){
         if (pc) {
           setSelectedPc({ ...pc, attacks });
         }
-      }
+      } // Con esta funcion estoy manipulando el mismo array para ejegir jugador pero implementando un condicional switch para tambien poder acceder a los otros atributos en el combate
   
       switch (selectPcPlayer) {
         case 1:
@@ -27,6 +28,7 @@ function SelectPcImage(){
             { name: 'Ataque Especial', damage: aleatory(10, 20), image: 'https://media0.giphy.com/media/GbUrFXadBryQ8/giphy.gif' },
           ]);
           break;
+
         case 2:
           updateSelectedPlayer('KATARA', [
             { name: 'Ataque Normal', damage: aleatory(10, 20), image: 'https://media.tumblr.com/tumblr_llidwxJZGY1qjyxcwo1_400.gif' },
@@ -34,6 +36,7 @@ function SelectPcImage(){
             { name: 'Ataque Especial', damage: aleatory(10, 20), image: 'https://media.giphy.com/media/hIWJ5h3IOmGty/giphy.gif' },
           ]);
           break;
+
         case 3:
           updateSelectedPlayer('TOPH', [
             { name: 'Ataque Normal', damage: aleatory(10, 20), image: 'https://media1.tenor.com/images/551e3c371bff2daac1ffdad814b9a08f/tenor.gif?itemid=11087020' },
@@ -48,16 +51,17 @@ function SelectPcImage(){
             { name: 'Ataque Especial', damage: aleatory(10, 20), image: 'https://media.giphy.com/media/a3BSVQ00oj2kU/giphy.gif' },
           ]);
           break;
+
         default:
           break;
       }
-    }, []);
+    }, [selectedPlayer]) // Con esta actualizacion del useEfect lo que estoy haciendo es que cada que yo le de a un boton para escoger un jugador diferente la maquina tambien haga lo mismo y no se quede con el que ha seleccionado antes
   
     return (
       <div className="container-images-pc">
 
           <div className="render-images-pc">
-            <p>{`${selectedPc.name}`}</p>
+            <p>{selectedPc.name}</p>
             <img
               src={selectedPc.src}
               alt={selectedPc.name}
