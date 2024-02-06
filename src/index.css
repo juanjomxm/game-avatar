@@ -8,14 +8,7 @@ body{
   overflow: auto
 }
 
-h1{
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  color: white;
-}
-
-h2{
+h1, h2, h3{
   display: flex;
   width: 100%;
   justify-content: center;
@@ -40,25 +33,21 @@ button{
   width: 100%;
   justify-content: center;
 }
-
 .container-wrapper {
   display: flex;
 }
-
 .container-images-player {
   flex: 1 1;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .container-images-pc {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .render-images-player, .render-images-pc{
   display: flex;
   flex-direction: column;
@@ -67,22 +56,25 @@ button{
   color: white;
   border-radius: 5px;
 }
-/* .render-images-pc{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-} */
 
+/* Boton de combate */
 .container-button-combat{
   display: flex;
   width: 100%;
+  justify-content: center;
+}
+
+/* Navegacion de combate */
+.section-title-combat{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 .container-combat{
   display: flex;
   justify-content: space-around
 }
-
 .atack-player, .atack-pc{
   display: flex;
   flex-direction: column;
@@ -90,22 +82,20 @@ button{
   align-items: center;
 }
 
+/* Barra de salud */
 .health-bar {
   height: 20px;
-  background-color: #4caf50; /* Color verde para la barra de salud */
+  background-color: #4caf50;
   transition: width 0.5s; /* Animación de transición */
   border-radius: 5px;
 }
-
 .container-images-atack{
   margin-top: 10px;
 }
-
 .container-buttons-atacks{
   display: flex;
   flex-direction: column
 }
-
 .container-message-final{
   display: flex;
   flex-direction: column;

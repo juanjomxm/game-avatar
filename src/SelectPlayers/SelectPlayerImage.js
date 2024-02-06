@@ -12,7 +12,7 @@ function SelectPlayerImage(){
 
       {selectedPlayer && (
         <div className="render-images-player">
-          <p>{`${selectedPlayer.name}`}</p>
+          <p>{selectedPlayer.name}</p>
           <img
             src={selectedPlayer.src}
             alt={selectedPlayer.name}

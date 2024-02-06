@@ -22,7 +22,6 @@ function ButtonCombat(){
         <div className="container-button-combat">
             <button onClick={()=>{
                 buttonCombat('/combat/')
-                console.log('navegacion a combate')
             }}>COMBATE</button>
         </div>
     )

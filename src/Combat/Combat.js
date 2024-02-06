@@ -1,7 +1,8 @@
 import React from "react";
 import { ProgressContext } from "../ContextGlobal/ContextGlobal";
+import { useNavigate } from "react-router-dom";
 
-const Combat = () => {
+function Combat(){
   const {
     selectedPlayer,
     selectedPc,
@@ -51,7 +52,7 @@ const Combat = () => {
     }
   }, [youTurn, combatFinish])
 
-  const reiniciarCombate = () => {
+  const rebootCombat = () => {
     setHealtPlayer(100)
     setHealtPc(100)
     setCombatFinish(false)
@@ -60,13 +61,41 @@ const Combat = () => {
     setCurrentPcAttackImage('')
   }
 
+  const navigate = useNavigate()
+  React.useEffect(() => {
+    const handleKeyPress = (event) => {
+      // Verificar si la tecla presionada es 'r' y la tecla Ctrl está presionada
+      if (event.key === 'r' && event.ctrlKey) {
+        navigate('/');
+      }
+    };
+
+    // Agregar el evento keydown al objeto window
+    window.addEventListener('keydown', handleKeyPress);
+
+    // Limpiar el evento al desmontar el componente
+    return () => {
+      window.removeEventListener('keydown', handleKeyPress);
+    };
+  }, [])
+
   return (
     <div className="container-combat">
+
+      <div className="section-title-combat">
+        <h1>COMBATE</h1>
+        <button
+        onClick={rebootCombat}
+        >Reiniciar combate</button>
+      </div>
+        
       <div className="atack-player">
+        {/* Seccion de ataques del jugador */}
         <h3>{selectedPlayer?.name}</h3>
         <img 
         src={selectedPlayer.src} 
-        width={100} height={100} 
+        width={100} 
+        height={100} 
         />
 
         <div 
@@ -74,6 +103,7 @@ const Combat = () => {
         style={{ width: `${healtPlayer}%` }} // De esta manera se puede hacer la barra de salud
         />
 
+        {/* Imagenes de ataques del jugador */}
         <div className="container-images-atack">
           {currentPlayerAttackImage && (
             <img 
@@ -98,28 +128,29 @@ const Combat = () => {
       </div>
 
 
-      {/* Seccion de ataques de la maquina */}
+        {/* Seccion de ataques de la maquina */}
       <div className="atack-pc">
-        <h3>{selectedPc?.name}</h3>
-        <img 
-        src={selectedPc.src} 
-        width={100} 
-        height={100} 
-        />
-        <div 
-        className="health-bar" 
-        style={{ width: `${healtPc}%` }} // De esta manera se puede hacer la barra de salud
-        />
+          <h3>{selectedPc?.name}</h3>
+          <img 
+          src={selectedPc.src} 
+          width={100} 
+          height={100} 
+          />
+          <div 
+          className="health-bar" 
+          style={{ width: `${healtPc}%` }} // De esta manera se puede hacer la barra de salud
+          />
 
-        <div className="container-images-atack">
-          {currentPcAttackImage && (
-            <img 
-            src={currentPcAttackImage} 
-            width={300} 
-            height={200} 
-            />
-          )}
-        </div>
+          {/* Imagenes de ataques pc */}
+          <div className="container-images-atack">
+            {currentPcAttackImage && (
+              <img 
+              src={currentPcAttackImage} 
+              width={300} 
+              height={200} 
+              />
+            )}
+          </div>
       </div>
 
       {/* Seccion del mensaje ganador */}
@@ -133,15 +164,10 @@ const Combat = () => {
           ) : (
             <p>{selectedPlayer.name}: Ganaste</p>
           )}
-
-          <button 
-          onClick={reiniciarCombate}
-          >
-          Reiniciar Combate</button>
         </div>
       )}
     </div>
   )
 }
 
-export { Combat}
+export { Combat }

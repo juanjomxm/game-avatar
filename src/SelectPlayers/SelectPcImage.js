@@ -14,9 +14,9 @@ function SelectPcImage(){
       const selectPcPlayer = aleatory(1, 4)
   
       const updateSelectedPlayer = (name, attacks) => {
-        const pc = imgSelectPlayer.find(item => item.name.includes(name));
+        const pc = imgSelectPlayer.find(item => item.name.includes(name))
         if (pc) {
-          setSelectedPc({ ...pc, attacks });
+          setSelectedPc({ ...pc, attacks })
         }
       } // Con esta funcion estoy manipulando el mismo array para ejegir jugador pero implementando un condicional switch para tambien poder acceder a los otros atributos en el combate
   

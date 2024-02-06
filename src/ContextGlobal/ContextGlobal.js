@@ -1,8 +1,8 @@
 import React from "react";
+
 const ProgressContext = React.createContext()
 
 function ProgressProvider({children}){
-
     const [selectedPlayer, setSelectedPlayer] = React.useState('') // Estado que maneja la seleccion del jugador y renderiza su resultado
     const [selectedPc, setSelectedPc] = React.useState('') // Estado que maneja la seleccion del pc
 
@@ -45,17 +45,18 @@ function ProgressProvider({children}){
 
     return(
         <ProgressContext.Provider value={{
-            imgSelectPlayer,
-            selectPlayer,
             selectedPlayer, 
             setSelectedPlayer,
-            aleatory,
             selectedPc, 
-            setSelectedPc
+            setSelectedPc,
+            imgSelectPlayer,
+            selectPlayer,
+            aleatory
         }}>
             {children}
         </ProgressContext.Provider>
     )
 }
 
-export { ProgressContext, ProgressProvider }
+export { ProgressContext }
+export { ProgressProvider }
