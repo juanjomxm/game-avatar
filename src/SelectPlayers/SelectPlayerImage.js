@@ -1,7 +1,6 @@
 import React from "react";
 import { ProgressContext } from "../ContextGlobal/ContextGlobal";
 
-
 function SelectPlayerImage(){
   const { 
     selectedPlayer,
@@ -19,7 +18,6 @@ function SelectPlayerImage(){
             width={300}
             height={300}
           />
-          <p>PLAYER</p>
         </div>
         
       )}

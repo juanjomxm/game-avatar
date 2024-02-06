@@ -2,13 +2,13 @@ import React from "react";
 import { ProgressContext } from "../ContextGlobal/ContextGlobal";
 
 function SelectPcImage(){
-    const { 
-        imgSelectPlayer, 
-        aleatory,
-        selectedPc, 
-        setSelectedPc,
-        selectedPlayer 
-    } = React.useContext(ProgressContext);
+    const {
+      imgSelectPlayer, 
+      aleatory,
+      selectedPc, 
+      setSelectedPc,
+      selectedPlayer 
+    } = React.useContext(ProgressContext)
   
     React.useEffect(() => {
       const selectPcPlayer = aleatory(1, 4)
@@ -69,7 +69,6 @@ function SelectPcImage(){
               height={300}
               style={{ border: 'none' }}
             />
-            <p>PC</p>
           </div>
       </div>
     )

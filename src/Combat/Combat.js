@@ -65,19 +65,11 @@ function Combat(){
   const navigate = useNavigate()
   React.useEffect(() => {
     const handleKeyPress = (event) => {
-      // Verificar si la tecla presionada es 'r' y la tecla Ctrl está presionada
       if (event.key === 'r' && event.ctrlKey) {
         navigate('/');
       }
     };
-
-    // Agregar el evento keydown al objeto window
     window.addEventListener('keydown', handleKeyPress);
-
-    // Limpiar el evento al desmontar el componente
-    return () => {
-      window.removeEventListener('keydown', handleKeyPress);
-    };
   }, [])
 
   return (

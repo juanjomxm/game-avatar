@@ -35,7 +35,7 @@ function ProgressProvider({children}){
     const selectPlayer = (playerName) => { // Funcion que ejecuta el click de los botones para escoger jugador
         const player = imgSelectPlayer.find(item => item.name.includes(playerName));
         if (player) {
-          setSelectedPlayer(player);
+          setSelectedPlayer(player)
         }
     }
 
@@ -45,6 +45,7 @@ function ProgressProvider({children}){
 
     return(
         <ProgressContext.Provider value={{
+            saveItem,
             selectedPlayer, 
             setSelectedPlayer,
             selectedPc, 
