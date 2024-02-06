@@ -61,6 +61,7 @@ function Combat(){
     setCurrentPcAttackImage('')
   }
 
+
   const navigate = useNavigate()
   React.useEffect(() => {
     const handleKeyPress = (event) => {
@@ -80,92 +81,97 @@ function Combat(){
   }, [])
 
   return (
-    <div className="container-combat">
+    <div className={`container-combat ${combatFinish ? 'game-over' : ''}`}>
 
       <div className="section-title-combat">
         <h1>COMBATE</h1>
-        <button
-        onClick={rebootCombat}
-        >Reiniciar combate</button>
       </div>
         
-      <div className="atack-player">
-        {/* Seccion de ataques del jugador */}
-        <h3>{selectedPlayer?.name}</h3>
-        <img 
-        src={selectedPlayer.src} 
-        width={100} 
-        height={100} 
-        />
-
-        <div 
-        className="health-bar" 
-        style={{ width: `${healtPlayer}%` }} // De esta manera se puede hacer la barra de salud
-        />
-
-        {/* Imagenes de ataques del jugador */}
-        <div className="container-images-atack">
-          {currentPlayerAttackImage && (
-            <img 
-            src={currentPlayerAttackImage} 
-            width={300} 
-            height={200} 
-            />
-          )}
-        </div>
-
-        <div className="container-buttons-atacks">
-          {selectedPlayer?.attacks && selectedPlayer.attacks.map((attack, index) => (
-          <button
-            key={index}
-            onClick={() => youAtack(attack.damage, attack.image)}
-            disabled={combatFinish || !youTurn}
-          >
-          {attack.name}
-          </button>
-          ))}
-        </div>
-      </div>
-
-
-        {/* Seccion de ataques de la maquina */}
-      <div className="atack-pc">
-          <h3>{selectedPc?.name}</h3>
+      <div className="section-combat-two-players">
+        <div className="atack-player">
+          {/* Seccion de ataques del jugador */}
+          <h3>{selectedPlayer?.name}</h3>
           <img 
-          src={selectedPc.src} 
+          src={selectedPlayer.src} 
           width={100} 
           height={100} 
           />
+
           <div 
           className="health-bar" 
-          style={{ width: `${healtPc}%` }} // De esta manera se puede hacer la barra de salud
+          style={{ width: `${healtPlayer}%` }} // De esta manera se puede hacer la barra de salud
           />
 
-          {/* Imagenes de ataques pc */}
+          {/* Imagenes de ataques del jugador */}
           <div className="container-images-atack">
-            {currentPcAttackImage && (
+            {currentPlayerAttackImage && (
               <img 
-              src={currentPcAttackImage} 
+              src={currentPlayerAttackImage} 
               width={300} 
               height={200} 
               />
             )}
           </div>
+
+          <div className="container-buttons-atacks">
+            {selectedPlayer?.attacks && selectedPlayer.attacks.map((attack, index) => (
+            <button
+              key={index}
+              onClick={() => youAtack(attack.damage, attack.image)}
+              disabled={combatFinish || !youTurn}
+            >
+            {attack.name}
+            </button>
+            ))}
+          </div>
+        </div>
+
+
+          {/* Seccion de ataques de la maquina */}
+        <div className="atack-pc">
+            <h3>{selectedPc?.name}</h3>
+            <img 
+            src={selectedPc.src} 
+            width={100} 
+            height={100} 
+            />
+            <div 
+            className="health-bar" 
+            style={{ width: `${healtPc}%` }} // De esta manera se puede hacer la barra de salud
+            />
+
+            {/* Imagenes de ataques pc */}
+            <div className="container-images-atack">
+              {currentPcAttackImage && (
+                <img 
+                src={currentPcAttackImage} 
+                width={300} 
+                height={200} 
+                />
+              )}
+            </div>
+        </div>
       </div>
 
       {/* Seccion del mensaje ganador */}
       {/* Con el signo de interrogacion en js tambien se hace una condicion, seria lo mismo que utilizar if o else */}
-      {combatFinish && (
-        <div className="container-message-final">
-          <h3>GAME OVER</h3>
+      <div className={`container-message-final ${combatFinish ? 'show' : ''}`}>
+        {combatFinish && (
+          <div className="section-text-game-over">
+            <h3>GAME OVER</h3>
+            {healtPlayer === 0 ? (
+              <p>El ganador es: {selectedPc.name}-PC </p>
+            ) : (
+              <p>El ganador es: {selectedPlayer.name}</p>
+            )}
 
-          {healtPlayer === 0 ? (
-            <p>{selectedPc.name}: PC ha ganado </p>
-          ) : (
-            <p>{selectedPlayer.name}: Ganaste</p>
-          )}
-        </div>
-      )}
+            <button
+            onClick={rebootCombat}
+            >Reiniciar combate</button>
+          </div>
+        )}
+      </div>
+
     </div>
   )
 }

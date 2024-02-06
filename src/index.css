@@ -65,15 +65,22 @@ button{
 }
 
 /* Navegacion de combate */
+.container-combat{
+  display: flex;
+  justify-content: space-around;
+  height: 100vh;
+  align-items: center;
+}
 .section-title-combat{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.container-combat{
+.section-combat-two-players{
   display: flex;
-  justify-content: space-around
+  justify-content: space-around;
+  width: 68%;
 }
 .atack-player, .atack-pc{
   display: flex;
@@ -96,11 +103,45 @@ button{
   display: flex;
   flex-direction: column
 }
-.container-message-final{
+
+/* Animacion de game over */
+@keyframes gameOverAnimation {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.container-message-final {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: rgba(32, 35, 41, .8); /* Puedes ajustar el color de fondo */
+  color: white;
+  border-radius: 10px;
+  animation: gameOverAnimation 1s ease-in-out; /* Ajusta la duración según tus preferencias */
+  opacity: 0; /* Comienza invisible */
+}
+.container-message-final.show {
+  opacity: 1;
+}
+.section-text-game-over{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 30px;
+  font-family: 'Sixtyfour', sans-serif;
 }
 
 
