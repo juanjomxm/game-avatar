@@ -45,7 +45,6 @@ function ProgressProvider({children}){
 
     return(
         <ProgressContext.Provider value={{
-            saveItem,
             selectedPlayer, 
             setSelectedPlayer,
             selectedPc, 
