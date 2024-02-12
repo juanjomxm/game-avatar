@@ -160,6 +160,12 @@ function Combat(){
             <button
             onClick={rebootCombat}
             >Reiniciar combate</button>
+
+            <button
+            onClick={()=>{
+              navigate('/')
+            }}
+            >Menu principal</button>
           </div>
         )}
       </div>
